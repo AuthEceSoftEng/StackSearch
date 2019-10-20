@@ -1,0 +1,4 @@
+String s1 = "Stack Overflow";
+String s2 = "Stack Overflow";
+s1 == s2;      //true
+s1.equals(s2); //true

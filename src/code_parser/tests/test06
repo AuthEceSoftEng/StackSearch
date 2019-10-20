@@ -1,0 +1,16 @@
+class Outer {
+    class Inner {
+        void sampleMethod() {
+            System.out.println(Outer.super.toString());
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "sample";
+    }
+
+    public static void main(String[] args) {
+        new Outer().new Inner().sampleMethod();
+    }
+}

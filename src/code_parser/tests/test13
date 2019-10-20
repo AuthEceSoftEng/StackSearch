@@ -1,0 +1,7 @@
+Class<? extends Base> getClass();
+
+T ObjectFromClass(Class<T> classOfT);
+
+<T extends Base> getObject(){
+   return ObjectFromClass(getClass());
+}

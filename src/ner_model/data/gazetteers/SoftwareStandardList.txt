@@ -1,0 +1,393 @@
+jar
+json
+http
+xml
+rest
+jsp
+servlet
+jpa
+jdbc
+ajax
+PDF
+PNG
+JPG
+JPEG
+GIF
+CSV
+DLL
+DOM
+
+Abstract factory
+Builder
+Factory method
+Lazy initialization
+Multiton
+Object pool
+Prototype
+Resource acquisition is initialization
+Singleton
+Adapter
+Bridge
+Composite
+Decorator
+Facade
+Flyweight
+Front Controller
+Marker
+Module
+Proxy
+Chain of responsibility
+Command
+Interpreter
+Iterator
+Mediator
+Memento
+Null object
+Observer
+Publish/subscribe
+Servant
+Specification
+State
+Strategy
+Template method
+Visitor
+Active Object
+Balking
+Block chain
+Double-checked locking
+Event-based asynchronous
+Guarded suspension
+Join
+Lock
+Messaging design pattern
+MDP
+Monitor object
+Reactor
+Read-write lock
+Scheduler
+Thread pool
+Thread-specific storage
+
+RTPS
+SSH
+SMB
+FTP
+SMTP
+TCP
+Telnet
+HTTP
+HTTPs
+HTCPCP
+MTP
+SFTP
+SSL
+TLS
+POP
+E6
+NTP
+PPP
+NNTP
+IMAP
+Bitcoin
+
+Asynchronous Connection-Less
+ACL
+Synchronous connection-oriented link
+SCO
+Link manager protocol
+LMP
+Host controller interface
+HCI
+Low-energy link layer
+LE LL
+Logical link control and adaptation protocol
+L2CAP
+Bluetooth network encapsulation protocol
+BNEP
+Radio frequency communication
+RFCOMM
+Service discovery protocol
+SDP
+Telephony Control Protocol Specification
+TCS
+Audio/video control transport protocol
+AVCTP
+Audio/video distribution transport protocol
+AVDTP
+Object exchange
+OBEX
+Low Energy Attribute Protocol
+ATT
+Low Energy Security Manager Protocol
+IPv6 Hop-by-Hop Option
+Internet Control Message Protocol
+Internet Group Management Protocol
+Gateway-to-Gateway Protocol
+IP in IP
+Internet Stream Protocol
+Transmission Control Protocol
+Core-based trees
+Exterior Gateway Protocol
+Interior Gateway Protocol
+BBN RCC Monitoring
+Network Voice Protocol
+Xerox PUP
+ARGUS
+EMCON
+Cross Net Debugger
+Chaos
+User Datagram Protocol
+Multiplexing
+DCN Measurement Subsystems
+Host Monitoring Protocol
+Packet Radio Measurement
+XEROX NS IDP
+Trunk-1
+Trunk-2
+Leaf-1
+Leaf-2
+Reliable Datagram Protocol
+Internet Reliable Transaction Protocol
+ISO Transport Protocol Class 4
+Bulk Data Transfer Protocol
+MFE Network Services Protocol
+MERIT Internodal Protocol
+Datagram Congestion Control Protocol
+Third Party Connect Protocol
+Inter-Domain Policy Routing Protocol
+Xpress Transport Protocol
+Datagram Delivery Protocol
+IDPR Control Message Transport Protocol
+TP++ Transport Protocol
+IL Transport Protocol
+IPv6 Encapsulation
+Source Demand Routing Protocol
+Routing Header for IPv6
+Fragment Header for IPv6
+Inter-Domain Routing Protocol
+Resource Reservation Protocol
+Generic Routing Encapsulation
+Mobile Host Routing Protocol
+BNA
+Encapsulating Security Payload
+Authentication Header
+Integrated Net Layer Security Protocol
+SwIPe
+NBMA Address Resolution Protocol
+Transport Layer Security Protocol
+Simple Key-Management for Internet Protocol
+ICMP for IPv6
+No Next Header for IPv6
+Destination Options for IPv6
+Any host internal protocol
+CFTP
+Any local network
+SATNET and Backroom EXPAK
+Kryptolan
+MIT Remote Virtual Disk Protocol
+Internet Pluribus Packet Core
+Any distributed file system
+SATNET Monitoring
+VISA Protocol
+Internet Packet Core Utility
+Computer Protocol Network Executive
+Computer Protocol Heart Beat
+Wang Span Network
+Packet Video Protocol
+Backroom SATNET Monitoring
+SUN ND PROTOCOL-Temporary
+WIDEBAND Monitoring
+WIDEBAND EXPAK
+International Organization for Standardization Internet Protocol
+Versatile Message Transaction Protocol
+Secure Versatile Message Transaction Protocol
+VINES
+TTP
+Internet Protocol Traffic Manager
+NSFNET-IGP
+Dissimilar Gateway Protocol
+TCF
+EIGRP
+Open Shortest Path First
+Sprite RPC Protocol
+Locus Address Resolution Protocol
+Multicast Transport Protocol
+AX.25
+IP-within-IP Encapsulation Protocol
+Mobile Internetworking Control Protocol
+Semaphore Communications Sec. Pro
+Ethernet-within-IP Encapsulation
+Encapsulation Header
+Any private encryption scheme
+GMTP
+Ipsilon Flow Management Protocol
+PNNI over IP
+Protocol Independent Multicast
+IBM's ARIS Protocol
+SCPS
+Space Communications Protocol Standards
+QNX
+Active Networks
+IP Payload Compression Protocol
+Sitara Networks Protocol
+Compaq Peer Protocol
+IPX in IP
+Virtual Router Redundancy Protocol
+Common Address Redundancy Protocol 
+PGM Reliable Transport Protocol
+Any 0-hop protocol
+Layer Two Tunneling Protocol Version 3
+D-II Data Exchange
+Interactive Agent Transfer Protocol
+Schedule Transfer Protocol
+SpectraLink Radio Protocol
+Universal Transport Interface Protocol
+Simple Message Protocol
+Simple Multicast Protocol
+Performance Transparency Protocol
+Intermediate System to Intermediate System
+Flexible Intra-AS Routing Environment
+Combat Radio Transport Protocol
+Combat Radio User Datagram
+Service-Specific Connection-Oriented Protocol
+
+HOPOPT
+ICMP
+IGMP
+GGP
+IP-in-IP
+ST
+TCP
+CBT
+EGP
+IGP
+BBN-RCC-MON
+NVP-II
+PUP
+ARGUS
+EMCON
+XNET
+CHAOS
+UDP
+MUX
+DCN-MEAS
+HMP
+PRM
+XNS-IDP
+TRUNK-1
+TRUNK-2
+LEAF-1
+LEAF-2
+RDP
+IRTP
+ISO-TP4
+NETBLT
+MFE-NSP
+MERIT-INP
+DCCP
+3PC
+IDPR
+XTP
+DDP
+IDPR-CMTP
+TP++
+IL
+IPv6
+SDRP
+IPv6-Route
+IPv6-Frag
+IDRP
+RSVP
+GRE
+MHRP
+BNA
+ESP
+AH
+I-NLSP
+SWIPE
+NARP
+MOBILE
+TLSP
+SKIP
+IPv6-ICMP
+IPv6-NoNxt
+IPv6-Opts
+CFTP
+SAT-EXPAK
+KRYPTOLAN
+RVD
+IPPC
+
+SAT-MON
+VISA
+IPCU
+CPNX
+CPHB
+WSN
+PVP
+BR-SAT-MON
+SUN-ND
+WB-MON
+WB-EXPAK
+ISO-IP
+VMTP
+SECURE-VMTP
+VINES
+TTP
+IPTM
+NSFNET-IGP
+DGP
+TCF
+EIGRP
+OSPF
+Sprite-RPC
+LARP
+MTP
+AX.25
+IPIP
+MICP
+SCC-SP
+ETHERIP
+ENCAP
+GMTP
+IFMP
+PNNI
+PIM
+ARIS
+SCPS
+QNX
+A/N
+IPComp
+SNP
+Compaq-Peer
+IPX-in-IP
+VRRP
+PGM
+L2TP
+DDX
+IATP
+STP
+SRP
+UTI
+SMP
+SM
+PTP
+IS-IS over IPv4
+FIRE
+CRTP
+CRUDP
+SSCOPMCE
+IPLT
+SPS
+PIPE
+SCTP
+FC
+RSVP-E2E-IGNORE
+Mobility Header
+UDPLite
+MPLS-in-IP
+manet
+HIP
+Shim6
+WESP
+ROHC

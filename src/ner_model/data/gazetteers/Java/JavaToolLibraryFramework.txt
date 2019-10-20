@@ -1,0 +1,272 @@
+Apache Ant
+cglib
+GlassFish
+Hudson
+JavaServer Faces
+JavaServer Pages
+Apache Maven
+Bazel
+Gradle
+ASM
+Byte Buddy
+Byteman
+Javassist
+Apache Aurora
+Singularity
+Checker Framework
+Checkstyle
+Error Prone
+FindBugs
+jQAssistant
+PMD
+SonarQube
+ANTLR
+JavaCC
+config
+owner
+Choco
+JaCoP
+OptaPlanner
+Sat4J
+Bamboo
+CircleCI
+Codeship
+fabric8
+Go
+Jenkins
+TeamCity
+Travis
+uniVocity-parsers
+Apache Phoenix
+Crate
+Flyway
+H2
+HikariCP
+JDBI
+jOOQ
+Liquibase
+MapDB
+Presto
+Querydsl
+Apache Parquet
+Protobuf
+SBE
+Wire
+Joda-Time
+Time4J
+Apache DeltaSpike
+Dagger2
+Guice
+HK2
+ADT4J
+AspectJ
+Auto
+DCEVM
+HotswapAgent
+Immutables
+JHipster
+JRebel
+Lombok
+Spring Loaded
+vert.x
+Akka
+Apache Storm
+Apache ZooKeeper
+Hazelcast
+Hystrix
+JGroups
+Orbit
+Quasar
+Apache Cassandra
+Apache HBase
+Druid
+Infinispan
+Bintray
+Capsule
+Central Repository
+IzPack
+JitPack
+Launch4j
+Nexus
+packr
+Apache POI
+documents4j
+jOpenDocument
+Cyclops
+Fugue
+Functional Java
+Javaslang
+jOOλ
+jMonkeyEngine
+libGDX
+LWJGL
+JavaFX
+Scene Builder
+Agrona
+Disruptor
+fastutil
+GS Collections
+HPPC
+Javolution
+JCTools
+Koloboke
+Trove
+Eclipse
+IntelliJ IDEA
+NetBeans
+Imgscalr
+Picasso
+Thumbnailator
+ZXing
+Genson
+Gson
+Jackson
+LoganSquare
+JDK 9
+OpenJDK
+Scala
+Groovy
+Clojure
+Ceylon
+Kotlin
+Apache Log4j 2
+kibana
+Logback
+logstash
+Metrics
+SLF4J
+Apache Flink
+Apache Hadoop
+Apache Mahout
+Apache Spark
+DeepDive
+Deeplearning4j
+H2O
+Weka
+Aeron
+Apache ActiveMQ
+Apache Camel
+Apache Kafka
+Hermes
+JBoss HornetQ
+JeroMQ
+Smack
+Design Patterns
+Jimfs
+Lanterna
+LightAdmin
+OpenRefine
+RoboVM
+AppDynamics
+JavaMelody
+Kamon
+New Relic
+SPM
+Takipi
+JNA
+Apache OpenNLP
+CoreNLP
+LingPipe
+Mallet
+Async Http Client
+Grizzly
+Netty
+OkHttp
+Undertow
+Ebean
+EclipseLink
+Hibernate
+MyBatis
+OrmLite
+Apache FOP
+Apache PDFBox
+DynamicReports
+flyingsaucer
+iText
+JasperReports
+jHiccup
+JMH
+JProfiler
+LatencyUtils
+VisualVM
+YourKit Java Profiler
+Reactive Streams
+Reactor
+RxJava
+Dropwizard
+Feign
+Jersey
+RESTEasy
+RestExpress
+RestX
+Retrofit
+Spark
+Swagger
+DataMelt
+JGraphT
+JScience
+Apache Solr
+Elasticsearch
+Apache Shiro
+Bouncy Castle
+Cryptomator
+Keycloak
+PicketLink
+FlatBuffers
+Kryo
+FST
+MessagePack
+Apache Tomcat
+Apache TomEE
+Jetty
+WebSphere Liberty
+WildFly
+Apache Velocity
+FreeMarker
+Handlebars.java
+Thymeleaf
+Apache JMeter
+Arquillian
+AssertJ
+Awaitility
+Citrus
+Cucumber
+Gatling
+Hamcrest
+JGiven
+JMockit
+JUnit
+Mockito
+PowerMock
+REST Assured
+Selenide
+Selenium
+Spock
+TestNG
+Truth
+Unitils
+WireMock
+Apache Commons
+args4j
+CRaSH
+Gephi
+Guava
+JADE
+javatuples
+JCommander
+Protégé
+Apache Nutch
+Crawler4j
+JSoup
+Apache Tapestry
+Apache Wicket
+Google Web Toolkit
+Grails
+Ninja
+Pippo
+Play
+PrimeFaces
+Ratpack
+Spring Boot
+Spring
+Vaadin

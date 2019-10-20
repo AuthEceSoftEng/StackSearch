@@ -1,0 +1,157 @@
+OUTPUT_FILE: glove_archive/vectors_v0.1.0
+$ glove_lib/vocab_count -min-count 5 -verbose 2 < train_data/corpus > glove_archive/vocab.txt
+BUILDING VOCABULARY
+Processed 283287417 tokens.
+Counted 2285090 unique words.
+Truncating vocabulary at min count 5.
+Using vocabulary of size 295633.
+
+$ glove_lib/cooccur -memory 4.0 -vocab-file glove_archive/vocab.txt -verbose 2 -window-size 15 < train_data/corpus > glove_archive/cooccurrence.bin
+COUNTING COOCCURRENCES
+window size: 15
+context: symmetric
+max product: 13752509
+overflow length: 38028356
+Reading vocab from file "glove_archive/vocab.txt"...loaded 295633 words.
+Building lookup table...table contains 133887357 elements.
+Processed 283287417 tokens.
+Writing cooccurrences to disk..........7 files in total.
+Merging cooccurrence files: processed 182258884 lines.
+
+$ glove_lib/shuffle -memory 4.0 -verbose 2 < glove_archive/cooccurrence.bin > glove_archive/cooccurrence.shuf.bin
+SHUFFLING COOCCURRENCES
+array size: 255013683
+Shuffling by chunks: processed 182258884 lines.
+Wrote 1 temporary file(s).
+Merging temp files: processed 182258884 lines.
+
+$ glove_lib/glove -save-file glove_archive/vectors_v0.1.0 -threads 4 -input-file glove_archive/cooccurrence.shuf.bin -x-max 10 -iter 25 -vector-size 300 -write-header 1 -binary 2 -model 2 -vocab-file glove_archive/vocab.txt -verbose 2
+TRAINING MODEL
+Read 182258884 lines.
+Initializing parameters...done.
+vector size: 300
+vocab size: 295633
+x_max: 10.000000
+alpha: 0.750000
+05/27/18 - 06:01.54PM, iter: 001, cost: 0.087103
+05/27/18 - 06:09.19PM, iter: 002, cost: 0.058437
+05/27/18 - 06:16.44PM, iter: 003, cost: 0.048358
+05/27/18 - 06:24.18PM, iter: 004, cost: 0.042135
+05/27/18 - 06:32.12PM, iter: 005, cost: 0.038161
+05/27/18 - 06:40.06PM, iter: 006, cost: 0.035524
+05/27/18 - 06:48.01PM, iter: 007, cost: 0.033615
+05/27/18 - 06:55.39PM, iter: 008, cost: 0.032131
+05/27/18 - 07:03.10PM, iter: 009, cost: 0.030921
+05/27/18 - 07:10.44PM, iter: 010, cost: 0.029887
+05/27/18 - 07:18.16PM, iter: 011, cost: 0.029035
+05/27/18 - 07:25.22PM, iter: 012, cost: 0.028293
+05/27/18 - 07:31.46PM, iter: 013, cost: 0.027695
+05/27/18 - 07:38.08PM, iter: 014, cost: 0.027153
+05/27/18 - 07:44.30PM, iter: 015, cost: 0.026671
+05/27/18 - 07:50.53PM, iter: 016, cost: 0.026257
+05/27/18 - 07:57.15PM, iter: 017, cost: 0.025864
+05/27/18 - 08:03.36PM, iter: 018, cost: 0.025518
+05/27/18 - 08:09.58PM, iter: 019, cost: 0.025209
+05/27/18 - 08:16.20PM, iter: 020, cost: 0.024917
+05/27/18 - 08:22.41PM, iter: 021, cost: 0.024651
+05/27/18 - 08:29.02PM, iter: 022, cost: 0.024408
+05/27/18 - 08:35.24PM, iter: 023, cost: 0.024178
+05/27/18 - 08:41.45PM, iter: 024, cost: 0.023969
+05/27/18 - 08:48.06PM, iter: 025, cost: 0.023774
+
+OUTPUT_FILE: glove_archive/vectors_v0.1.1
+$ glove_lib/vocab_count -min-count 5 -verbose 2 < train_data/corpus > glove_archive/vocab.txt
+BUILDING VOCABULARY
+Processed 283287417 tokens.
+Counted 2285090 unique words.
+Truncating vocabulary at min count 5.
+Using vocabulary of size 295633.
+
+$ glove_lib/cooccur -memory 5.0 -vocab-file glove_archive/vocab.txt -verbose 2 -window-size 10 < train_data/corpus > glove_archive/cooccurrence.bin
+COUNTING COOCCURRENCES
+window size: 10
+context: symmetric
+max product: 16975229
+overflow length: 47535445
+Reading vocab from file "glove_archive/vocab.txt"...loaded 295633 words.
+Building lookup table...table contains 161757751 elements.
+Processed 283287417 tokens.
+Writing cooccurrences to disk..........4 files in total.
+Merging cooccurrence files: processed 145953743 lines.
+
+$ glove_lib/shuffle -memory 5.0 -verbose 2 < glove_archive/cooccurrence.bin > glove_archive/cooccurrence.shuf.bin
+SHUFFLING COOCCURRENCES
+array size: 318767104
+Shuffling by chunks: processed 145953743 lines.
+Wrote 1 temporary file(s).
+Merging temp files: processed 145953743 lines.
+
+$ glove_lib/glove -save-file glove_archive/vectors_v0.1.1 -threads 8 -input-file glove_archive/cooccurrence.shuf.bin -x-max 100 -iter 25 -vector-size 300 -write-header 1 -binary 0 -model 2 -vocab-file glove_archive/vocab.txt -verbose 2
+TRAINING MODEL
+Read 145953743 lines.
+Initializing parameters...done.
+vector size: 300
+vocab size: 295633
+x_max: 100.000000
+alpha: 0.750000
+05/29/18 - 12:12.09PM, iter: 001, cost: 0.034049
+05/29/18 - 12:18.01PM, iter: 002, cost: 0.020482
+05/29/18 - 12:23.39PM, iter: 003, cost: 0.016456
+05/29/18 - 12:29.05PM, iter: 004, cost: 0.013919
+05/29/18 - 12:35.03PM, iter: 005, cost: 0.012165
+05/29/18 - 12:40.16PM, iter: 006, cost: 0.010946
+05/29/18 - 12:45.09PM, iter: 007, cost: 0.010084
+05/29/18 - 12:49.55PM, iter: 008, cost: 0.009481
+05/29/18 - 12:54.41PM, iter: 009, cost: 0.008994
+05/29/18 - 12:59.27PM, iter: 010, cost: 0.008612
+05/29/18 - 01:04.13PM, iter: 011, cost: 0.008302
+05/29/18 - 01:09.00PM, iter: 012, cost: 0.008047
+05/29/18 - 01:13.46PM, iter: 013, cost: 0.007817
+05/29/18 - 01:18.31PM, iter: 014, cost: 0.007613
+05/29/18 - 01:23.19PM, iter: 015, cost: 0.007449
+05/29/18 - 01:28.05PM, iter: 016, cost: 0.007295
+05/29/18 - 01:32.51PM, iter: 017, cost: 0.007150
+05/29/18 - 01:37.37PM, iter: 018, cost: 0.007026
+05/29/18 - 01:42.23PM, iter: 019, cost: 0.006910
+05/29/18 - 01:47.09PM, iter: 020, cost: 0.006813
+05/29/18 - 01:51.55PM, iter: 021, cost: 0.006704
+05/29/18 - 01:56.43PM, iter: 022, cost: 0.006617
+05/29/18 - 02:01.30PM, iter: 023, cost: 0.006540
+05/29/18 - 02:06.16PM, iter: 024, cost: 0.006458
+05/29/18 - 02:11.02PM, iter: 025, cost: 0.006380
+
+OUTPUT_FILE: glove_archive/vectors_v0.1.2
+$ glove_lib/glove -save-file glove_archive/vectors_v0.1.2 -threads 8 -input-file glove_archive/cooccurrence.shuf.bin -x-max 10 -eta 0.025 -iter 25 -vector-size 300 -write-header 1 -binary 0 -model 2 -vocab-file glove_archive/vocab.txt -verbose 2
+TRAINING MODEL
+Read 145953743 lines.
+Initializing parameters...done.
+vector size: 300
+vocab size: 295633
+x_max: 10.000000
+alpha: 0.750000
+06/01/18 - 12:30.29AM, iter: 001, cost: 0.107716
+06/01/18 - 12:35.53AM, iter: 002, cost: 0.072248
+06/01/18 - 12:41.50AM, iter: 003, cost: 0.060819
+06/01/18 - 12:47.46AM, iter: 004, cost: 0.052731
+06/01/18 - 12:53.43AM, iter: 005, cost: 0.046487
+06/01/18 - 12:59.42AM, iter: 006, cost: 0.041998
+06/01/18 - 01:05.43AM, iter: 007, cost: 0.038937
+06/01/18 - 01:11.45AM, iter: 008, cost: 0.036715
+06/01/18 - 01:17.47AM, iter: 009, cost: 0.034997
+06/01/18 - 01:23.52AM, iter: 010, cost: 0.033577
+06/01/18 - 01:29.58AM, iter: 011, cost: 0.032425
+06/01/18 - 01:36.03AM, iter: 012, cost: 0.031499
+06/01/18 - 01:42.06AM, iter: 013, cost: 0.030690
+06/01/18 - 01:48.10AM, iter: 014, cost: 0.029975
+06/01/18 - 01:54.13AM, iter: 015, cost: 0.029344
+06/01/18 - 02:00.20AM, iter: 016, cost: 0.028807
+06/01/18 - 02:05.32AM, iter: 017, cost: 0.028305
+06/01/18 - 02:10.06AM, iter: 018, cost: 0.027850
+06/01/18 - 02:14.41AM, iter: 019, cost: 0.027438
+06/01/18 - 02:19.15AM, iter: 020, cost: 0.027083
+06/01/18 - 02:23.50AM, iter: 021, cost: 0.026737
+06/01/18 - 02:28.24AM, iter: 022, cost: 0.026427
+06/01/18 - 02:32.59AM, iter: 023, cost: 0.026137
+06/01/18 - 02:37.33AM, iter: 024, cost: 0.025881
+06/01/18 - 02:42.08AM, iter: 025, cost: 0.025623
+

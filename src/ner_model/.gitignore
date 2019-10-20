@@ -1,0 +1,7 @@
+*.data
+old/
+data/annotated_data/*
+data/brown/*/*
+data/ft_archive/*
+data/embed/*
+data/train_data/*

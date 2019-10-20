@@ -1,0 +1,6 @@
+public class MethodChaining { 
+    public static void main(String[] args) { 
+        ExampleJavaArray mExampleJavaArray = new ExampleJavaArray();
+        mExampleJavaArray.setName("chandru").getAge().displayValue(); 
+    }
+} 

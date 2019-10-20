@@ -1,0 +1,129 @@
+AChartEngine
+EazeGraph
+WilliamChart
+HelloCharts
+MPAndroidChart
+RoboGuice
+Dagger
+Butter Knife
+AndroidAnnotations
+AndEngine
+Vuforia
+Unity
+Rajawali
+Pull to refresh
+Cardslib
+AndroidStaggeredGrid
+AQuery
+Flow
+Crouton
+DragSortListView
+MaterialProgressBar
+AndroidFillableLoaders
+ActionBarSherlock
+FadingActionBar
+SlidingMenu
+SlidingTutorial
+PagerSlidingTabStrip
+Page View indicator
+MaterialDrawer
+NineOldAndroids
+Rebound
+Android View Animations
+Android-Transition
+Android-View-Actions
+android-crop
+CircularImageView
+FloatingLabel
+MaterialEditText
+Emojicon
+Picasso
+Universal Image Loader
+Glide
+Fresco
+Gson
+Jackson JSON Processor
+Crashlytics
+HockeyApp
+Splunk MINT
+Bugsnag
+Ion
+OkHttp
+Asynchronous Http Client
+RoboSpice
+IceNet
+Android Volley
+IceSoap
+node-android
+android-remote-notifications
+Cupboard
+DbInspector
+Realm
+RestorableSQLiteDatabase
+GreeDAO
+ORMLite
+ActiveAndroid
+Sugar ORM
+DBFlow
+Retrofit
+Robotium
+Roboletric
+AssertJ Android
+MobileAppTracking
+Mixpanel
+EventBus
+Otto
+Weak handler
+Byte Buddy
+SmartGattLib
+Android Support library
+Google Play Services
+Tape
+Android Annotation framework
+Guava: Google Core Libraries for Java
+Android Scripting
+Android Priority Job Queue
+RateMeMaybe
+Easy Rating Dialog
+ZXing Android-Integration
+Gradle Retrolambda Plugin
+Caffeine
+Vogella Tutorials
+Android Design in Action Video series
+Android Design in Action slides
+Android DevBytes Video Series
+Developing for Android
+Chet Hasae
+Android Hive Tutorials
+Android Weekly
+Android Asset Studio
+Android Action Bar Style Generator
+Device Art Generator
+Android UI design resources
+Pencil Project
+Google Wear App
+How to Make Android Apps
+android-blogs
+The Android Arsenal
+DevAppsDirect - Demo Market
+Square libraries
+Android.hew.io
+Xamarin
+PhoneGap
+Titanium
+NativeScript
+React Native
+Ionic Framework
+Apache Cordova
+Reapp.io
+Corona SDK
+Scala on Android
+Scaloid
+Macroid
+Groovy on Android
+Groovy Language Support for Android
+SwissKnife
+Anko
+Kotterknife
+Android Kotlin Samples
+KAndroid

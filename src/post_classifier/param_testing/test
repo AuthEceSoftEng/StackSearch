@@ -1,0 +1,85 @@
+Best: 0.939500 using {'batch_size': 40, 'epochs': 5}
+0.939500 (0.036389) with: {'batch_size': 40, 'epochs': 5}
+0.912500 (0.067610) with: {'batch_size': 40, 'epochs': 6}
+0.923000 (0.037817) with: {'batch_size': 40, 'epochs': 7}
+0.932000 (0.042171) with: {'batch_size': 60, 'epochs': 5}
+0.920000 (0.060288) with: {'batch_size': 60, 'epochs': 6}
+0.929500 (0.042505) with: {'batch_size': 60, 'epochs': 7}
+0.909500 (0.069062) with: {'batch_size': 80, 'epochs': 5}
+0.935000 (0.034090) with: {'batch_size': 80, 'epochs': 6}
+0.936000 (0.037850) with: {'batch_size': 80, 'epochs': 7}
+0.934500 (0.033847) with: {'batch_size': 100, 'epochs': 5}
+0.937500 (0.030281) with: {'batch_size': 100, 'epochs': 6}
+0.916000 (0.066968) with: {'batch_size': 100, 'epochs': 7}
+0.876000 (0.051659) with: {'batch_size': 120, 'epochs': 5}
+0.937500 (0.031760) with: {'batch_size': 120, 'epochs': 6}
+0.930500 (0.032607) with: {'batch_size': 120, 'epochs': 7}
+Best: 0.945500 using {'optimizer': 'Adagrad'}
+0.720500 (0.054375) with: {'optimizer': 'SGD'}
+0.939500 (0.036903) with: {'optimizer': 'RMSprop'}
+0.945500 (0.029550) with: {'optimizer': 'Adagrad'}
+0.931500 (0.033198) with: {'optimizer': 'Adadelta'}
+0.940000 (0.032982) with: {'optimizer': 'Adam'}
+0.853500 (0.156892) with: {'optimizer': 'Adamax'}
+0.935500 (0.030964) with: {'optimizer': 'Nadam'}
+Best: 0.939000 using {'activation': 'relu'}
+0.871500 (0.060930) with: {'activation': 'softmax'}
+0.780000 (0.114175) with: {'activation': 'softplus'}
+0.925000 (0.025515) with: {'activation': 'softsign'}
+0.939000 (0.030109) with: {'activation': 'relu'}
+0.935000 (0.019030) with: {'activation': 'tanh'}
+0.859500 (0.064900) with: {'activation': 'sigmoid'}
+0.816500 (0.059267) with: {'activation': 'hard_sigmoid'}
+0.909000 (0.043514) with: {'activation': 'linear'}
+Best: 0.947500 using {'kernel_size': 3, 'pool_size': 6}
+0.937000 (0.027618) with: {'kernel_size': 3, 'pool_size': 2}
+0.939000 (0.039952) with: {'kernel_size': 3, 'pool_size': 3}
+0.936500 (0.040235) with: {'kernel_size': 3, 'pool_size': 5}
+0.947500 (0.029001) with: {'kernel_size': 3, 'pool_size': 6}
+0.919500 (0.053488) with: {'kernel_size': 4, 'pool_size': 2}
+0.907000 (0.061422) with: {'kernel_size': 4, 'pool_size': 3}
+0.940500 (0.036718) with: {'kernel_size': 4, 'pool_size': 5}
+0.937500 (0.034353) with: {'kernel_size': 4, 'pool_size': 6}
+0.890000 (0.084777) with: {'kernel_size': 5, 'pool_size': 2}
+0.906500 (0.059507) with: {'kernel_size': 5, 'pool_size': 3}
+0.873000 (0.130051) with: {'kernel_size': 5, 'pool_size': 5}
+0.939000 (0.038827) with: {'kernel_size': 5, 'pool_size': 6}
+0.868000 (0.079087) with: {'kernel_size': 6, 'pool_size': 2}
+0.936500 (0.037006) with: {'kernel_size': 6, 'pool_size': 3}
+0.939500 (0.036636) with: {'kernel_size': 6, 'pool_size': 5}
+0.946000 (0.034773) with: {'kernel_size': 6, 'pool_size': 6}
+Best: 0.944000 using {'dropout': 0.6, 'recurrent_dropout': 0.05}
+0.931500 (0.051418) with: {'dropout': 0.4, 'recurrent_dropout': 0.05}
+0.942000 (0.038023) with: {'dropout': 0.4, 'recurrent_dropout': 0.1}
+0.939000 (0.039670) with: {'dropout': 0.4, 'recurrent_dropout': 0.15}
+0.942500 (0.029905) with: {'dropout': 0.4, 'recurrent_dropout': 0.2}
+0.935500 (0.051686) with: {'dropout': 0.45, 'recurrent_dropout': 0.05}
+0.889000 (0.098762) with: {'dropout': 0.45, 'recurrent_dropout': 0.1}
+0.941000 (0.037003) with: {'dropout': 0.45, 'recurrent_dropout': 0.15}
+0.940500 (0.032691) with: {'dropout': 0.45, 'recurrent_dropout': 0.2}
+0.938500 (0.040359) with: {'dropout': 0.5, 'recurrent_dropout': 0.05}
+0.921500 (0.070953) with: {'dropout': 0.5, 'recurrent_dropout': 0.1}
+0.940000 (0.039530) with: {'dropout': 0.5, 'recurrent_dropout': 0.15}
+0.935000 (0.042488) with: {'dropout': 0.5, 'recurrent_dropout': 0.2}
+0.930000 (0.048393) with: {'dropout': 0.55, 'recurrent_dropout': 0.05}
+0.929000 (0.044294) with: {'dropout': 0.55, 'recurrent_dropout': 0.1}
+0.935500 (0.039533) with: {'dropout': 0.55, 'recurrent_dropout': 0.15}
+0.931000 (0.049234) with: {'dropout': 0.55, 'recurrent_dropout': 0.2}
+0.944000 (0.040379) with: {'dropout': 0.6, 'recurrent_dropout': 0.05}
+0.941500 (0.040375) with: {'dropout': 0.6, 'recurrent_dropout': 0.1}
+0.916000 (0.059522) with: {'dropout': 0.6, 'recurrent_dropout': 0.15}
+0.927500 (0.062400) with: {'dropout': 0.6, 'recurrent_dropout': 0.2}
+Best: 0.940500 using {'embed_len': 35}
+0.909000 (0.075783) with: {'embed_len': 20}
+0.902000 (0.092049) with: {'embed_len': 25}
+0.909500 (0.064657) with: {'embed_len': 30}
+0.940500 (0.040752) with: {'embed_len': 35}
+0.933500 (0.048592) with: {'embed_len': 40}
+0.935000 (0.046699) with: {'embed_len': 45}
+0.935500 (0.048864) with: {'embed_len': 50}
+0.938500 (0.039531) with: {'embed_len': 55}
+0.936500 (0.044356) with: {'embed_len': 60}
+0.922500 (0.063015) with: {'embed_len': 65}
+0.926000 (0.050298) with: {'embed_len': 70}
+0.936500 (0.041719) with: {'embed_len': 75}
+

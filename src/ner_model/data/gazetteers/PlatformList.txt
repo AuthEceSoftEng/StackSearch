@@ -1,0 +1,54 @@
+AmigaOS
+AmigaOS 4
+FreeBSD
+NetBSD
+OpenBSD
+Linux
+Ubuntu
+Debian
+Redhat
+CentOS
+Arch Linux
+Microsoft Windows
+Windows
+Windows CE
+Windows XP
+Windows Vista
+Windows 7
+Windows 8
+Windows 95
+Windows 98
+Windows 10
+VxWorks
+OpenVMS
+Mac
+Mac OS
+OS X
+OS/2
+Solaris
+SUN OS
+DOS
+Tru64 UNIX
+Unix
+VM
+VM/CMS
+Android
+Bada
+BlackBerry OS
+Firefox OS
+iOS
+Embedded Linux
+Palm OS
+Symbian
+Tizen
+WebOS
+Windows Mobile
+Windows Phone
+MeeGo
+x86
+AMD64
+IA-64
+POWER
+MIPS
+ARMv9
+Sparc

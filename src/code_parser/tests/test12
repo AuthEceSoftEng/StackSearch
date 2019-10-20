@@ -1,0 +1,6 @@
+interface Pong<T> {}
+class Ping<T> implements Pong<Pong<? super Ping<Ping<T>>>> {
+    static void Ping() {
+        Pong<? super Ping<Long>> Ping = new Ping<Long>();
+    }
+}

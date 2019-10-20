@@ -1,0 +1,22 @@
+// initialize an InputStream
+InputStream is = new ByteArrayInputStream("sample".getBytes());
+// convert InputStream to String
+BufferedReader br = null;
+StringBuilder sb = new StringBuilder();
+String line;
+try {
+	br = new BufferedReader(new InputStreamReader(is));
+	while ((line = br.readLine()) != null) {
+		sb.append(line);
+	}
+} catch (IOException e) {
+	e.printStackTrace();
+} finally {
+	if (br != null) {
+		try {
+			br.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    }
+}
