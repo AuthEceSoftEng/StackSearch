@@ -5,11 +5,6 @@ All vector space models were trained on an extensively pre-processed corpus from
 - Each search model extends the `BaseSearchModel` class found in `search_model.py` which includes a ranking function. The ranking function is based on cosine similarities calculated using the query vector and every post vector found in the given index.
 - Additionaly the `BaseSearchModel` provides the necessary functions to calculate batch cosine similarities as well as a `presenter` function which prints the `ranking` function's results in a useful manner (making use of the metadata produced by the **Index Builder**).
 
-# Index
-
-The indices produced by the `index_builder.py` script provide a post-vector lookup table in order to calculate cosine similarities with the user given queries.  
-The metadata files include useful information to be presented when a query is issued. When the ranking function returns the top relevant results code snippets and additional useful information is presented alongside them.
-
 ## FastText
 
 The [fastText](https://fasttext.cc/) search model produced very relevant results in our experiments showing its power in query semantic similarity (e.g. Read CSV file. Read delimited file.).  
@@ -28,3 +23,8 @@ This model performed the best in our experiments confirming our hypothesis that 
 
 The GloVe search model infers word and sentence vectors using the word vector dictionary produced during training. It calculates sentence vectors by mimiking the fastText algorithm (average of the unit norm vectors of every token).  
 While GloVe word vectors have been used in the past with great success, in this project it had a poor performance. This performance can be attributed to the nature and informality of online speech as well as the programming terminology and API calls found in the text.
+
+# Index
+
+The indices produced by the `index_builder.py` script provide a post-vector lookup table in order to calculate cosine similarities with the user given queries.  
+The metadata files include useful information to be presented when a query is issued. When the ranking function returns the top relevant results code snippets and additional useful information is presented alongside them.
