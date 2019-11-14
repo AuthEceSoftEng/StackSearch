@@ -1,5 +1,9 @@
 #!/usr/bin/env python
 
+#
+# Extracts API calls from code snippets found in answer post bodies.
+#
+
 import os
 import re
 import sys

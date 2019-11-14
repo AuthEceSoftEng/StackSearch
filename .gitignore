@@ -5,14 +5,14 @@ __pycache__/
 
 # Project specific files / folders
 *.log
-*.html
-evaluation/*
 testing/
-src/lib/*
+web_app/
 src/data/*
 src/temp_files/
 src/database/*.db
 src/database/*.pkl
+src/database/*.json
+src/database/temp/*
 src/wordvec_models/index/*
 src/wordvec_models/train_data/*
 src/wordvec_models/tfidf_archive/*

@@ -2,8 +2,10 @@
 
 import os
 import gc
+import json
 import pickle
 import sqlite3
+import argparse
 
 import pandas as pd
 
@@ -27,7 +29,7 @@ INIT_ANSWER_QUERY = '''SELECT Body, Id FROM answers
 INIT_COMMENT_QUERY = '''SELECT Text AS Body, Id FROM comments
     WHERE PostId IN {id_list} ORDER BY PostId ASC'''
 
-FINAL_QUESTION_QUERY = '''SELECT Id, Title, Tags, SnippetCount, Score FROM questions
+FINAL_QUESTION_QUERY = '''SELECT Id, Title, Tags, Entities, SnippetCount, Score FROM questions
     WHERE Id IN {id_list} ORDER BY Id ASC'''
 FINAL_ANSWER_QUERY = '''SELECT Id, ParentId, Score FROM answers
     WHERE Id IN {id_list} ORDER BY ParentId ASC'''
@@ -76,14 +78,14 @@ class CorpusBuilder:
         output_dict = {key: [] for key in cols}
 
         if eval_posts:
-            codeparser = CodeParserStdin(
-                index_path=os.path.join(self.export_dir, 'api_index'),
-                extract_sequence=True,
-                keep_imports=False,
-                keep_comments=True,
-                keep_literals=False,
-                keep_method_calls=True,
-                keep_unsolved_method_calls=False)
+            codeparser = CodeParserStdin(index_path=os.path.join(
+                self.export_dir, 'api_index'),
+                                         extract_sequence=True,
+                                         keep_imports=False,
+                                         keep_comments=True,
+                                         keep_literals=False,
+                                         keep_method_calls=True,
+                                         keep_unsolved_method_calls=False)
             # Format posts and discard low quality posts (excess punctuation)
             for idx, row in enumerate(c):
                 print('\rpost:', idx, end='')
@@ -124,9 +126,8 @@ class CorpusBuilder:
 
         # Filter out 'unclean' posts using the predictions
         labels = load_number_list(predictions_path, mode='bool')
-        df = pd.DataFrame(
-            data={'Body': remove_rows(posts, labels)},
-            index=remove_rows(post_ids, labels))
+        df = pd.DataFrame(data={'Body': remove_rows(posts, labels)},
+                          index=remove_rows(post_ids, labels))
 
         if post_type == 'q':
             self.qid_list = list(df.index)
@@ -146,9 +147,9 @@ class CorpusBuilder:
         if post_type != 'c':  # skip classifier stage for comments
             self._filter_posts(db_data['Body'], db_data['Id'], post_type)
         else:
-            pd.DataFrame(
-                data={'Body': db_data['Body']},
-                index=db_data['Id']).to_pickle(self.init_dfs['c'])
+            pd.DataFrame(data={
+                'Body': db_data['Body']
+            }, index=db_data['Id']).to_pickle(self.init_dfs['c'])
 
     def _build_final_dataframe(self, query, post_type):
         def validate_data(original_ids, db_data):
@@ -175,8 +176,8 @@ class CorpusBuilder:
 
     def build_initial_dataframes(self, qid_list=None, ansid_list=None):
         print('Building initial dataframes.')
-        query = INIT_QUESTION_QUERY.format(
-            ans_count=ans_count_threshold, score=score_threshold)
+        query = INIT_QUESTION_QUERY.format(ans_count=ans_count_threshold,
+                                           score=score_threshold)
         if self.qparams:
             query = INIT_QUESTION_QUERY.format(**self.qparams)
         self._build_initial_dataframe(query, 'q')
@@ -204,10 +205,9 @@ class CorpusBuilder:
             n = len(iterable)
             for index, element in enumerate(iterable):
                 j = (index + 1) / n
-                print(
-                    '\r[{:{}s}] {}%'.format('=' * int(max_n * j), max_n,
-                                            int(100 * j)),
-                    end='')
+                print('\r[{:{}s}] {}%'.format('=' * int(max_n * j), max_n,
+                                              int(100 * j)),
+                      end='')
                 yield index, element
             print()
 
@@ -264,7 +264,45 @@ def main(classifier_path,
     corpus_builder.build_corpus()
 
 
+def param_parser(params_filepath, text_eval_fn):
+    params = {
+        'classifier_path': None,
+        'vectorizer_dict_path': None,
+        'database_path': None,
+        'export_dir': None,
+        'text_eval_fn': text_eval_fn,
+        'qparams': None,
+    }
+
+    with open(params_filepath, 'r') as _in:
+        params_dict = json.load(_in)
+
+    params['classifier_path'] = params_dict['corpus']['classifier_path']
+    params['vectorizer_dict_path'] = params_dict['corpus'][
+        'vectorizer_dict_path']
+    params['database_path'] = params_dict['database_path']
+    params['export_dir'] = params_dict['corpus']['export_dir']
+    params['qparams'] = params_dict['corpus']['qparams']
+
+    return params
+
+
+def validate_file(filepath):
+    if not os.path.exists(filepath):
+        print('File "{}" does not exist.'.format(filepath))
+        exit()
+
+
 if __name__ == '__main__':
-    main('post_classifier/models/c-lstm_v1.0.hdf5',
-         'post_classifier/data/token_dictionary.json', 'database/javaposts.db',
-         'data', eval_text)
+    parser = argparse.ArgumentParser(description='Corpus builder.')
+    parser.add_argument(
+        '-p',
+        '--params',
+        default='params.json',
+        help='Path to a valid params file. (default: params.json)')
+
+    args = parser.parse_args()
+    validate_file(args.params)
+
+    p = param_parser(args.params, eval_text)
+    main(**p)

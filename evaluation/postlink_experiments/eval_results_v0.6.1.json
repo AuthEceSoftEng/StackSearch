@@ -1,0 +1,17 @@
+{
+  "ft_v0.6.1": {
+    "title": 19.83,
+    "body": 14.34,
+    "title-body": 21.18
+  },
+  "tfidf_v0.3": {
+    "title": 22.18,
+    "body": 18.87,
+    "title-body": 25.41
+  },
+  "hybrid_v0.6.1": {
+    "title": 23.7,
+    "body": 19.8,
+    "title-body": 26.98
+  }
+}

@@ -14,18 +14,17 @@ TOKEN_RE = r'\S\S+'
 class TfIdfSearch(BaseSearchModel):
     def __init__(self, model_path, index_path, index_keys, metadata_path):
         self.model = self._read_pickle(model_path)
+        print('TFIDF model {} loaded.'.format(os.path.basename(model_path)))
         super().__init__(index_path, index_keys, metadata_path)
 
     def infer_vector(self, text):
-        return self.model.transform([text.lower().strip()])
+        return {'query_vec': self.model.transform([text.lower().strip()])}
 
-    def search(self, num_results=20, custom_weights=None, postid_fn=None):
-        super().search(
-            num_results=num_results,
-            custom_weights=custom_weights,
-            ranking_fn=self.ranking,
-            postid_fn=postid_fn,
-            vector_fn=None)
+    def search(self, num_results=20, field_weights=None, postid_fn=None):
+        super().search(num_results=num_results,
+                       field_weights=field_weights,
+                       ranking_fn=self.ranking,
+                       postid_fn=postid_fn)
 
 
 def load_text_list(filename):
@@ -43,12 +42,11 @@ def load_tfidf_model(model_path):
 
 
 def train_tfidf_model(post_list, model_export_path, vec_export_path):
-    tfidf = TfidfVectorizer(
-        token_pattern=TOKEN_RE,
-        preprocessor=None,
-        tokenizer=None,
-        stop_words='english',
-        smooth_idf=True)
+    tfidf = TfidfVectorizer(token_pattern=TOKEN_RE,
+                            preprocessor=None,
+                            tokenizer=None,
+                            stop_words='english',
+                            smooth_idf=True)
     tfidf_matrix = tfidf.fit_transform(post_list)
     sparse.save_npz(vec_export_path, tfidf_matrix)
     with open(model_export_path, 'wb') as out:

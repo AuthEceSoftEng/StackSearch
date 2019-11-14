@@ -1,5 +1,11 @@
 #!/usr/bin/env python
 
+#
+# 1. Extracts code snippets from question & answer post bodies.
+# 2. Rebuilds the sqlite database inserting the new 'SnippetCount' 'Snippets'
+# columns.
+#
+
 import os
 import re
 import sys
@@ -30,16 +36,16 @@ SCORE_INDEX = 4
 ans_query = 'SELECT ParentId, Id, Body, OwnerUserId, Score FROM answers ORDER BY Score DESC'
 
 new_qtable = '''CREATE TABLE IF NOT EXISTS "questions" 
-    (Id INTEGER, AcceptedAnswerId INTEGER, Title TEXT, Body TEXT, Tags TEXT, Score INTEGER, 
+    (Id INTEGER, AcceptedAnswerId INTEGER, Title TEXT, Body TEXT, Tags TEXT, Score INTEGER, Entities TEXT, 
     SnippetCount INTEGER, Snippets TEXT, FavoriteCount INTEGER, ViewCount INTEGER, 
     AnswerCount INTEGER, CommentCount INTEGER, OwnerUserId INTEGER, 
     CreationDate DATETIME, LastEditDate DATETIME)'''
 
-old_cols = '''Id, AcceptedAnswerId, Title, Body, Tags, Score, 
+old_cols = '''Id, AcceptedAnswerId, Title, Body, Tags, Score, Entities, 
 FavoriteCount, ViewCount, AnswerCount, CommentCount, OwnerUserId, 
 CreationDate, LastEditDate'''
 
-new_cols = '''Id, AcceptedAnswerId, Title, Body, Tags, Score, 
+new_cols = '''Id, AcceptedAnswerId, Title, Body, Tags, Score, Entities, 
 SnippetCount, Snippets, FavoriteCount, ViewCount, AnswerCount, 
 CommentCount, OwnerUserId, CreationDate, LastEditDate'''
 
@@ -87,11 +93,16 @@ def build_snippet_index(db_path):
         else:
             if snippet_count > 0:
                 new_str = None
-                new_count = question_dict[qid]['SnippetCount'] + snippet_count
-                new_str = '<_post_>'.join(
+                old_count = question_dict[qid]['SnippetCount']
+                new_count = old_count + snippet_count
+                # avoid joining empty string (no snippets initially) with non-empty
+                # leaves leading <_post_> tag which later complicates splitting
+                # new_str = re.sub(r'^<_post_>', r'', new_str) or alternatively code bellow
+                if old_count > 0:
+                    new_str = '<_post_>'.join(
                         [question_dict[qid]['Snippets'], snippet_str])
-                # Remove starting <_post_> delimeter for the first empty string
-                new_str = re.sub(r'^<_code_>', r'', new_str)
+                else:
+                    new_str = snippet_str
                 question_dict[qid] = {
                     'SnippetCount': new_count,
                     'Snippets': new_str
@@ -122,9 +133,9 @@ def insert_snippet_data(db_path, snippet_df):
             snippet_info = snippet_df.loc[_id]
             snippet_count = int(snippet_info['SnippetCount'])
             snippets = snippet_info['Snippets'].strip()
-            new_row = row[:6] + tuple([snippet_count, snippets]) + row[6:]
+            new_row = row[:7] + tuple([snippet_count, snippets]) + row[7:]
         else:
-            new_row = row[:6] + (0, '') + row[6:]
+            new_row = row[:7] + (0, '') + row[7:]
         query = 'INSERT INTO questions ({columns}) VALUES ({values})'.format(
             columns=new_cols, values=vals_str)
         des_c.execute(query, new_row)
@@ -151,4 +162,4 @@ def main(db_path, snippet_df_path=None):
 
 
 if __name__ == '__main__':
-    main('javaposts.db')  # , 'snippet_index.pkl')
+    main('javaposts.db')#, 'snippet_index.pkl')

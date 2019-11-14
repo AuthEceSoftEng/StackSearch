@@ -62,7 +62,7 @@ for ii, test in enumerate(testfiles):
         code_snippet = in_.read()
 
     sequence = extractor.tokenize_sequence(code_snippet, '00' + str(ii), False)
-    print(sequence)
+    print(test, sequence)
 
 extractor.close()
 

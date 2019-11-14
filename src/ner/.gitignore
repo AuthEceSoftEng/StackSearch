@@ -1,0 +1,8 @@
+*.data
+old/
+data/brown/*/*
+data/fasttext/*
+data/train_data/*
+data/ce_features/*
+data/mbkm_clusters/*
+data/annotated_data/*

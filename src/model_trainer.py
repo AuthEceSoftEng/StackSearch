@@ -2,34 +2,86 @@
 
 import os
 import sys
+import json
 import argparse
 import subprocess
+import multiprocessing
+
+import fasttext
 from wordvec_models.tfidf_model import load_text_list, train_tfidf_model
 from wordvec_models.glove_model import build_glove_model
-fastText_params = {}
 
 
-def train_fasttext_model(corpus_path, params_path):
-    pass
-
-
-def main(corpus_path, export_dir, model_type, params_path=None):
-    if model_type == 'ft':
-        assert params_path
-        train_fasttext_model(corpus_path, params_path)
+def main(corpus_path, export_path, model_type, training_params):
+    if model_type == 'fasttext':
+        model = fasttext.train_unsupervised(corpus_path, **training_params)
+        model.save_model(export_path[0])
     elif model_type == 'tfidf':
-        model_path = os.path.join(export_dir, 'tfidf_v0.4.pkl')
-        train_matrix_path = os.path.join(export_dir,
-                                         'tfidf_train_matrix_v0.4.pkl')
-        train_tfidf_model(
-            load_text_list(corpus_path), model_path, train_matrix_path)
+        train_tfidf_model(load_text_list(corpus_path), export_path[0],
+                          export_path[1])
     elif model_type == 'glove':
-        model_path = os.path.join(export_dir, 'glove_v0.1.1.pkl')
-        index_path = os.path.join(export_dir, 'glove_v0.1.1_wordvec_index.pkl')
-        build_glove_model(corpus_path, index_path, model_path)
+        # Uses a glove word - vector dump file to build and save a glove search model
+        build_glove_model(corpus_path, export_path[1], export_path[0])
+
+
+def param_parser(params_filepath, model_type):
+    params = {
+        'corpus_path': None,
+        'export_path': None,
+        'model_type': model_type,
+        'training_params': None,
+    }
+
+    with open(params_filepath, 'r') as _in:
+        params_dict = json.load(_in)
+
+    if model_type not in ['fasttext', 'tfidf', 'glove']:
+        print('Valid model types: [fasttext, tfidf, glove]')
+        exit()
+    m = params_dict['training'][model_type]
+    params['corpus_path'] = params_dict['training']['corpus']
+
+    if model_type == 'fasttext':
+        model = m['export_name'] + '_' + m['export_ver'] + '.bin'
+        params['export_path'] = [os.path.join(m['export_dir'], model)]
+        params['training_params'] = m['model_params']
+    elif model_type == 'tfidf':
+        model = m['export_name'] + '_' + m['export_ver'] + '.pkl'
+        matrix = m['export_name'] + '_' + m['export_ver'] + '_train_matrix.pkl'
+        model = os.path.join(m['export_dir'], model)
+        matrix = os.path.join(m['export_dir'], matrix)
+        params['export_path'] = [model, matrix]
     else:
-        raise ValueError('Model type "{}" not recognized.'.format(model_type))
+        model = m['export_name'] + '_' + m['export_ver'] + '.pkl'
+        index = m['export_name'] + '_' + m['export_ver'] + '_wordvec_index.pkl'
+        model = os.path.join(m['export_dir'], model)
+        index = os.path.join(m['export_dir'], index)
+        params['export_path'] = [model, index]
+
+    return params
+
+
+def validate_file(filepath):
+    if not os.path.exists(filepath):
+        print('File "{}" does not exist.'.format(filepath))
+        exit()
 
 
 if __name__ == '__main__':
-    main('wordvec_models/train_data/corpus_lemma_nsw', 'wordvec_models/tfidf_archive', 'tfidf')
+    parser = argparse.ArgumentParser(description='Model trainer.')
+    parser.add_argument(
+        'model_type',
+        help='Model type to train. Types: [fasttext, tfidf, glove]')
+    parser.add_argument(
+        '-p',
+        '--params',
+        default='params.json',
+        help='Path to a valid params file. (default: params.json)')
+
+    args = parser.parse_args()
+    validate_file(args.params)
+
+    p = param_parser(args.params, args.model_type)
+    print(p)
+    exit()
+    main(**p)

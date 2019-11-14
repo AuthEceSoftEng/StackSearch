@@ -1,18 +1,18 @@
 #!/usr/bin/env python
-"""
-Converts StackOverflow data-dump xml files into separate sqlite databases.
-Required files: Posts.xml, Comments.xml, Tags.xml, Postlinks.xml
-                Users.xml
-Output: posts.db, comments.db, tags.db, postlinks.db, users.db
 
-In case some of those dbs aren't required simply remove the corresponding 
-names from the tables variable.
-
-The build_java_db function requires the created posts.db and comments.db files
-to build a database containing only java related posts with certain selected fields.
-    
-Java DB Tables: answers comments questions.
-"""
+#
+# Converts StackOverflow data-dump xml files into separate sqlite databases.
+# Required files: Posts.xml, Comments.xml, Tags.xml, Postlinks.xml, Users.xml
+# Output: posts.db, comments.db, tags.db, postlinks.db, users.db
+#
+# In case some of those dbs aren't required simply remove the corresponding 
+# names from the tables variable.
+#
+# The build_java_db function requires the created posts.db and comments.db files
+# to build a database containing only java related posts with certain selected fields.
+#     
+# Java DB Tables: answers comments questions.
+#
 
 import os
 import sys

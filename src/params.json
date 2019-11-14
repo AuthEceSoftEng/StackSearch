@@ -1,0 +1,71 @@
+{
+  "database_path": "database/javaposts.db",
+  "wordvec_models_dir": "wordvec_models/",
+  "fasttext_model": "wordvec_models/fasttext_archive/ft_v0.6.1.bin",
+  "tfidf_model": "wordvec_models/tfidf_archive/tfidf_v0.3.pkl",
+  "glove_index": "wordvec_models/glove_archive/glove_v0.1.1.pkl",
+  "training": {
+    "corpus": "wordvec_models/train_data/corpus_norm_v0.3",
+    "fasttext": {
+      "export_name": "ft",
+      "export_ver": "v0.6.2",
+      "export_dir": "wordvec_models/fasttext_archive/",
+      "model_params": {
+        "model": "skipgram",
+        "lr": 0.025,
+        "dim": 300,
+        "ws": 10,
+        "epoch": 24,
+        "minCount": 5,
+        "neg": 10,
+        "loss": "ns",
+        "t": 1e-6
+      }
+    },
+    "tfidf": {
+      "export_name": "tfidf",
+      "export_ver": "v0.4",
+      "export_dir": "wordvec_models/tfidf_archive/"
+    },
+    "glove": {
+      "export_name": "glove",
+      "export_ver": "v0.1",
+      "export_dir": "wordvec_models/glove_archive/"
+    }
+  },
+  "index": {
+    "question_dataframe": "data/final_q_posts",
+    "index_dataset": "wordvec_models/index/data/index_dataset.pkl",
+    "temp_dir": "temp_files",
+    "export_dir": "wordvec_models/index/",
+    "qid_conditions": [
+      "AcceptedAnswerId NOT NULL",
+      "Score>=1",
+      "AnswerCount>=1",
+      "SnippetCount>=1"
+    ],
+    "metadata_cols": [
+      "Id",
+      "Score",
+      "Title",
+      "Tags",
+      "Entities",
+      "SnippetCount",
+      "Snippets"
+    ],
+    "build_options": {
+      "build_metadata": true,
+      "build_dataset": false,
+      "build_ft_index": false,
+      "build_tfidf_index": false,
+      "build_glove_index": false,
+      "build_wv_index": false
+    }
+  },
+  "corpus": {
+    "classifier_path": "post_classifier/models/c-lstm_v1.0.hdf5",
+    "vectorizer_dict_path": "post_classifier/data/token_dictionary.json",
+    "export_dir": "data",
+    "qparams": null
+  }
+}

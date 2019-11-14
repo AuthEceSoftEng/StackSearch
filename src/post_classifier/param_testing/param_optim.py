@@ -12,7 +12,19 @@ from keras.layers.embeddings import Embedding
 from keras.layers.convolutional import Conv1D
 from keras.layers.convolutional import MaxPooling1D
 
-from clsf_test import retain_top_words
+
+def retain_top_words(data_matrix, ntop_tokens):
+    """
+    Given a matrix data (list of np.array) retain the n most frequent tokens
+    (ntop_tokens) of each row-vector.
+    """
+    res_matrix = []
+    for row in data_matrix:
+        if isinstance(row, list):
+            res_matrix.append([el for el in row if el < ntop_tokens])
+        else:
+            res_matrix.append(row[row < ntop_tokens])
+    return res_matrix
 
 
 def data():
@@ -34,6 +46,7 @@ def data():
 
     return X_train, X_test, y_train, y_test, max_len, max_features
 
+
 def model(X_train, X_test, y_train, y_test, max_len, max_features):
     embed_len = {{choice(list(range(15, 65, 5)))}}
     nkernel = {{choice(list(range(2, 7)))}}
@@ -45,11 +58,17 @@ def model(X_train, X_test, y_train, y_test, max_len, max_features):
 
     model = Sequential()
     model.add(Embedding(max_features, embed_len, input_length=max_len))
-    model.add(Conv1D(filters=embed_len, kernel_size=nkernel, padding='same', activation='relu'))
+    model.add(
+        Conv1D(filters=embed_len,
+               kernel_size=nkernel,
+               padding='same',
+               activation='relu'))
     model.add(MaxPooling1D(pool_size=npool))
     model.add(LSTM(100, dropout=drop, recurrent_dropout=rdrop))
     model.add(Dense(1, activation='sigmoid'))
-    model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
+    model.compile(loss='binary_crossentropy',
+                  optimizer='adam',
+                  metrics=['accuracy'])
     # Fit the model on the train dataset
     model.fit(X_train, y_train, epochs=nepoch, batch_size=100)
     # Final evaluation of the model
@@ -59,7 +78,8 @@ def model(X_train, X_test, y_train, y_test, max_len, max_features):
     # Cleaning up used memory in the tensorflow backend
     backend.clear_session()
     gc.collect()
-    return {'loss': -acc, 'status': STATUS_OK}#, 'model': model}
+    return {'loss': -acc, 'status': STATUS_OK}  #, 'model': model}
+
 
 if __name__ == '__main__':
     '''best_run, best_model'''
